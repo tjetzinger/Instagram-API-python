@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from InstagramAPI import InstagramAPI
+from instagram_api.InstagramAPI import InstagramAPI
 
 InstagramAPI = InstagramAPI("login", "password")
 InstagramAPI.login() # login
