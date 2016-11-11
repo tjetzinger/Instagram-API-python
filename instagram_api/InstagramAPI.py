@@ -10,7 +10,7 @@ import uuid
 import time
 import copy
 import math
-from ImageUtils import getImageSize
+from PIL import Image
 from requests_toolbelt import MultipartEncoder
 from moviepy.editor import VideoFileClip
 
@@ -231,7 +231,8 @@ class InstagramAPI:
         return self.SendRequest('media/configure/?video=1', self.generateSignature(data))
 
     def configure(self, upload_id, photo, caption = ''):
-        (w,h) = getImageSize(photo)
+        im = Image(photo)
+        (w,h) = im.size
         data = json.dumps({
         '_csrftoken'    : self.token,
         'media_folder'  : 'Instagram',
